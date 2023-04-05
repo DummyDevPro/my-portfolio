@@ -1,13 +1,13 @@
 <template>
   <div class="section-wrap">
-    <about-comp class="mandatory-scroll-snapping" />
-    <contact-address-comp class="mandatory-scroll-snapping" />
-    <edu-comp class="mandatory-scroll-snapping" />
-    <expertise-comp class="mandatory-scroll-snapping" />
-    <skill-comp class="mandatory-scroll-snapping" />
-    <experience-comp class="mandatory-scroll-snapping" />
-    <language-comp class="mandatory-scroll-snapping" />
-    <certificate-comp class="mandatory-scroll-snapping" />
+    <about-comp />
+    <contact-address-comp />
+    <edu-comp />
+    <expertise-comp />
+    <skill-comp />
+    <experience-comp />
+    <language-comp />
+    <certificate-comp />
   </div>
 </template>
 
@@ -37,12 +37,7 @@ export default {
 
 <style scoped>
 .section-wrap {
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-}
-
-.mandatory-scroll-snapping {
-  scroll-snap-type: y mandatory;
 }
 </style>

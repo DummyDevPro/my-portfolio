@@ -66,7 +66,9 @@ aside {
     position: -webkit-sticky;
     top: 0;
     left: 0;
-    height: inherit;
+    min-height: fit-content;
+    height: 100vh;
+    overflow: scroll;
     background-color: ghostwhite;
     padding: 1rem 0;
 }
