@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "deploy" : "bash deploy.sh"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "bootstrap-vue": "^2.23.1",
