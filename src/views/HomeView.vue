@@ -8,6 +8,7 @@
     <experience-comp />
     <language-comp />
     <certificate-comp />
+    <footer-comp />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import SkillComp from '@/components/SkillComp.vue'
 import ExperienceComp from '@/components/ExperienceComp.vue'
 import LanguageComp from '@/components/LanguageComp.vue'
 import CertificateComp from '@/components/CertificateComp.vue'
+import FooterComp from '@/components/FooterComp.vue'
 
 export default {
   components: {
@@ -31,6 +33,7 @@ export default {
     'experience-comp': ExperienceComp,
     'language-comp': LanguageComp,
     'certificate-comp': CertificateComp,
+    'footer-comp': FooterComp,
   }
 }
 </script>

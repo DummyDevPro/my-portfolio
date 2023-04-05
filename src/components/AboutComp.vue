@@ -28,7 +28,7 @@ export default {
         return {
             'nameIntro': "I'm Htun Myat Maw",
             'carrier': 'Web Developer',
-            'aboutMe': "I'd graduated from University Of Computer Studies Yangon. After graduation, I worked at Japan Offshore Company about 3.5 years in Myanmar and after that I directly joined IT Company at Japan Country. In there I worked about 2 years. But now, I've been working in IT College Okinawa as a Teacher since 2021 March 27."
+            'aboutMe': "I'm graduated from University Of Computer Studies Yangon. After graduation, I worked at Japan Offshore Company about 3.5 years in Myanmar and after that I directly joined IT Company at Japan Country. In there I worked about 2 years. But now, I've been working in IT College Okinawa as a Teacher since 2021 March 27."
         }
     }
 }
