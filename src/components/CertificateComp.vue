@@ -24,7 +24,8 @@ export default {
 </script>
 <style scoped>
 .certificate-list {
-    width: max-content;
+    min-width: inherit;
+    max-width: max-content;
     padding-left: 1rem;
     display: flex;
     flex-direction: column;

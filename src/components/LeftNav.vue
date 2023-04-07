@@ -68,7 +68,7 @@ aside {
     left: 0;
     min-height: fit-content;
     height: 100vh;
-    overflow: scroll;
+    overflow-y: scroll;
     background-color: ghostwhite;
     padding: 1rem 0;
 }
@@ -119,7 +119,7 @@ ul li a img {
 
 ul li a:hover {
     top: 0;
-    left: 2rem;
+    /* left: 2rem; */
     color: var(--color-white);
     background-color: var(--hmm-primary-color);
 }
