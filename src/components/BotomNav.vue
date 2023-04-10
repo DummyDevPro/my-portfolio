@@ -1,25 +1,31 @@
 <template>
     <div class="bot-nav bg-quaternary">
         <ul>
-            <li>
-                <div v-show="currentIndex != 0">
-                    <!-- :href="'#' + menuList[prevIndex].id" -->
-                    <span @click="goBack()">
+            <li class="prevHref">
+                <a v-show="currentIndex != 0" :href="'#' + menuList[prevIndex].id">
+                    <span @click="changeIndex(-1)">
                         <b-icon-back />
                         <span>{{ menuList[prevIndex].name }}</span>
                     </span>
-                </div>
+                </a>
+
+
+            </li>
+
+            <li class="currentHref">
                 <a :href="'#' + menuList[currentIndex].id">
                     <!-- <img src="@/assets/img/post-sign.svg" alt=""> -->
                     <span>{{ menuList[currentIndex].name }}</span>
                 </a>
-                <div v-show="currentIndex != lastIndex">
-                    <!-- :href="'#' + menuList[nexIndex].id" -->
-                    <span @click="goNext()">
+            </li>
+
+            <li class="nextHref">
+                <a v-show="currentIndex != lastIndex" :href="'#' + menuList[nexIndex].id">
+                    <span @click="changeIndex(1)">
                         <b-icon-forward />
                         <span>{{ menuList[nexIndex].name }}</span>
                     </span>
-                </div>
+                </a>
             </li>
         </ul>
     </div>
@@ -86,24 +92,6 @@ export default {
         this.lastIndex = this.menuList.length - 1
     },
     methods: {
-        goBack() {
-            console.log(window.location)
-            window.location.href = window.location.origin + '#' + this.menuList[this.prevIndex].id
-            let calIndex = this.prevIndex - 1;
-            if (calIndex >= 0) {
-                this.currentIndex = this.prevIndex
-                this.prevIndex--;
-            }
-        },
-        goNext() {
-            console.log(window.location)
-            window.location.href = window.location.origin + '#' + this.menuList[this.nexIndex].id
-            let calIndex = this.nexIndex + 1;
-            if (calIndex <= this.lastIndex) {
-                this.currentIndex = this.nexIndex
-                this.nexIndex++;
-            }
-        },
         changeIndex(num) {
             setTimeout(() => {
                 let calIndex = this.currentIndex + num;
@@ -145,20 +133,19 @@ ul {
     width: 100%;
     list-style: none;
     overflow-x: scroll;
+    display: flex;
     padding: 1rem .5rem;
     border-bottom: 1px solid var(--color-white);
 }
 
 ul li {
     font-size: 1.125rem;
-    display: flex;
-    flex: 0 0 100%;
     align-items: center;
     color: white;
     gap: .5rem;
 }
 
-ul li>* {
+/* ul li>a {
     text-decoration: none;
     color: white;
     padding: .5rem;
@@ -180,7 +167,7 @@ ul li>*:not(:nth-child(2))>span {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 @media (max-width: 575.98px) {
     .bot-nav {
