@@ -2,22 +2,24 @@
     <div class="bot-nav bg-quaternary">
         <ul>
             <li>
-                <a v-show="currentIndex != 0" :href="'#' + menuList[prevIndex].id">
-                    <span @click="changeIndex(-1)">
+                <div v-show="currentIndex != 0">
+                    <!-- :href="'#' + menuList[prevIndex].id" -->
+                    <span @click="goBack()">
                         <b-icon-back />
                         <span>{{ menuList[prevIndex].name }}</span>
                     </span>
-                </a>
+                </div>
                 <a :href="'#' + menuList[currentIndex].id">
                     <!-- <img src="@/assets/img/post-sign.svg" alt=""> -->
                     <span>{{ menuList[currentIndex].name }}</span>
                 </a>
-                <a v-show="currentIndex != lastIndex" :href="'#' + menuList[nexIndex].id">
-                    <span @click="changeIndex(1)">
+                <div v-show="currentIndex != lastIndex">
+                    <!-- :href="'#' + menuList[nexIndex].id" -->
+                    <span @click="goNext()">
                         <b-icon-forward />
                         <span>{{ menuList[nexIndex].name }}</span>
                     </span>
-                </a>
+                </div>
             </li>
         </ul>
     </div>
@@ -84,6 +86,24 @@ export default {
         this.lastIndex = this.menuList.length - 1
     },
     methods: {
+        goBack() {
+            console.log(window.location)
+            window.location.href = window.location.origin + '#' + this.menuList[this.prevIndex].id
+            let calIndex = this.prevIndex - 1;
+            if (calIndex >= 0) {
+                this.currentIndex = this.prevIndex
+                this.prevIndex--;
+            }
+        },
+        goNext() {
+            console.log(window.location)
+            window.location.href = window.location.origin + '#' + this.menuList[this.nexIndex].id
+            let calIndex = this.nexIndex + 1;
+            if (calIndex <= this.lastIndex) {
+                this.currentIndex = this.nexIndex
+                this.nexIndex++;
+            }
+        },
         changeIndex(num) {
             setTimeout(() => {
                 let calIndex = this.currentIndex + num;
@@ -138,7 +158,7 @@ ul li {
     gap: .5rem;
 }
 
-ul li>a {
+ul li>* {
     text-decoration: none;
     color: white;
     padding: .5rem;
