@@ -2,7 +2,7 @@
     <div class="bot-nav bg-quaternary">
         <ul>
             <li>
-                <a v-show="currentIndex != 0" :href="'#' + menuList[currentIndex].id" @click="changeIndex(-1)">
+                <a v-show="currentIndex != 0" :href="'#' + menuList[prevIndex].id" @click="changeIndex(-1)">
                     <b-icon-back />
                     <span>{{ menuList[prevIndex].name }}</span>
                 </a>
@@ -10,7 +10,7 @@
                     <!-- <img src="@/assets/img/post-sign.svg" alt=""> -->
                     <span>{{ menuList[currentIndex].name }}</span>
                 </a>
-                <a v-show="currentIndex != lastIndex" :href="'#' + menuList[currentIndex].id" @click="changeIndex(1)">
+                <a v-show="currentIndex != lastIndex" :href="'#' + menuList[nexIndex].id" @click="changeIndex(1)">
                     <b-icon-forward />
                     <span>{{ menuList[nexIndex].name }}</span>
                 </a>
@@ -81,20 +81,22 @@ export default {
     },
     methods: {
         changeIndex(num) {
-            let calIndex = this.currentIndex + num;
-            if ((calIndex >= 0) || (calIndex <= this.lastIndex)) {
-                this.currentIndex += num
+            setTimeout(() => {
+                let calIndex = this.currentIndex + num;
+                if ((calIndex >= 0) || (calIndex <= this.lastIndex)) {
+                    this.currentIndex += num
 
-                // Prev
-                if (calIndex != 0) {
-                    this.prevIndex = calIndex - 1
-                }
+                    // Prev
+                    if (calIndex != 0) {
+                        this.prevIndex = calIndex - 1
+                    }
 
-                // Next
-                if (calIndex != this.lastIndex) {
-                    this.nexIndex = calIndex + 1
+                    // Next
+                    if (calIndex != this.lastIndex) {
+                        this.nexIndex = calIndex + 1
+                    }
                 }
-            }
+            }, 500);
         }
     }
 }
