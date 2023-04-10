@@ -2,17 +2,21 @@
     <div class="bot-nav bg-quaternary">
         <ul>
             <li>
-                <a v-show="currentIndex != 0" :href="'#' + menuList[prevIndex].id" @click="changeIndex(-1)">
-                    <b-icon-back />
-                    <span>{{ menuList[prevIndex].name }}</span>
+                <a v-show="currentIndex != 0" :href="'#' + menuList[prevIndex].id">
+                    <span @click="changeIndex(-1)">
+                        <b-icon-back />
+                        <span>{{ menuList[prevIndex].name }}</span>
+                    </span>
                 </a>
                 <a :href="'#' + menuList[currentIndex].id">
                     <!-- <img src="@/assets/img/post-sign.svg" alt=""> -->
                     <span>{{ menuList[currentIndex].name }}</span>
                 </a>
-                <a v-show="currentIndex != lastIndex" :href="'#' + menuList[nexIndex].id" @click="changeIndex(1)">
-                    <b-icon-forward />
-                    <span>{{ menuList[nexIndex].name }}</span>
+                <a v-show="currentIndex != lastIndex" :href="'#' + menuList[nexIndex].id">
+                    <span @click="changeIndex(1)">
+                        <b-icon-forward />
+                        <span>{{ menuList[nexIndex].name }}</span>
+                    </span>
                 </a>
             </li>
         </ul>
@@ -152,7 +156,7 @@ ul li>*:nth-child(2):hover {
     background-color: #415c78;
 }
 
-ul li>*:not(:nth-child(2)) {
+ul li>*:not(:nth-child(2))>span {
     display: flex;
     flex-direction: column;
     align-items: center;
