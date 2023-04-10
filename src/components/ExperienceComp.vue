@@ -146,6 +146,7 @@ export default {
 
 .items {
     display: flex;
+    flex-wrap: wrap;
     gap: .25rem;
 }
 

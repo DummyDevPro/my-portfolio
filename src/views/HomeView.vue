@@ -8,6 +8,7 @@
     <experience-comp />
     <language-comp />
     <certificate-comp />
+    <bottom-nav />
     <footer-comp />
   </div>
 </template>
@@ -22,6 +23,7 @@ import ExperienceComp from '@/components/ExperienceComp.vue'
 import LanguageComp from '@/components/LanguageComp.vue'
 import CertificateComp from '@/components/CertificateComp.vue'
 import FooterComp from '@/components/FooterComp.vue'
+import BotomNav from '@/components/BotomNav.vue'
 
 export default {
   components: {
@@ -33,6 +35,7 @@ export default {
     'experience-comp': ExperienceComp,
     'language-comp': LanguageComp,
     'certificate-comp': CertificateComp,
+    'bottom-nav': BotomNav,
     'footer-comp': FooterComp,
   }
 }

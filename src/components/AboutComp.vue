@@ -73,7 +73,7 @@ export default {
 }
 
 .about-me {
-    width: 25rem;
+    width: 20rem;
     border-radius: .5rem;
 }
 </style>

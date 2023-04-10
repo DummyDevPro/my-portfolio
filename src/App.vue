@@ -20,4 +20,14 @@ main {
   display: grid;
   grid-template-columns: 25% 75%;
 }
+
+@media (max-width: 575.98px) {
+  main {
+    grid-template-columns: 100%;
+  }
+
+  main>*:first-child {
+    display: none;
+  }
+}
 </style>
