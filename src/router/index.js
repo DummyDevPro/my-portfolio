@@ -10,7 +10,9 @@ const routes = [
 ]
 
 const scrollBehavior = (to, from, savedPosition) => {
-  return savedPosition || { top: 0, left: 0 }
+
+
+  return { selector: to.hash } || savedPosition || { top: 0, left: 0 }
 }
 
 const router = createRouter({

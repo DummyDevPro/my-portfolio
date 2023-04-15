@@ -1,6 +1,22 @@
 <template>
     <div class="bot-nav bg-quaternary">
-        <ul>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#education">Education</a>
+        <a href="#expertise">Expertise</a>
+        <!-- <router-link to="#about">
+            About
+        </router-link>
+        <router-link to="#contact">
+            Contact
+        </router-link>
+        <router-link to="#education">
+            Education
+        </router-link>
+        <router-link to="#expertise">
+            Expertise
+        </router-link> -->
+        <!-- <ul>
             <li class="prevHref">
                 <a v-show="currentIndex != 0" :href="'#' + menuList[prevIndex].id">
                     <span @click="changeIndex(-1)">
@@ -8,13 +24,11 @@
                         <span>{{ menuList[prevIndex].name }}</span>
                     </span>
                 </a>
-
-
             </li>
 
             <li class="currentHref">
                 <a :href="'#' + menuList[currentIndex].id">
-                    <!-- <img src="@/assets/img/post-sign.svg" alt=""> -->
+                    <img src="@/assets/img/post-sign.svg" alt="">
                     <span>{{ menuList[currentIndex].name }}</span>
                 </a>
             </li>
@@ -27,7 +41,7 @@
                     </span>
                 </a>
             </li>
-        </ul>
+        </ul> -->
     </div>
 </template>
 <script>
@@ -125,6 +139,10 @@ export default {
     left: 0;
 }
 
+.bot-nav>a {
+    color: white;
+}
+
 .bot-nav>ul::-webkit-scrollbar {
     display: none !important;
 }
@@ -171,7 +189,8 @@ ul li>*:not(:nth-child(2))>span {
 
 @media (max-width: 575.98px) {
     .bot-nav {
-        display: block;
+        display: flex;
+        gap: 1rem;
     }
 }
 </style>
