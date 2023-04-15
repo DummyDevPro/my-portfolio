@@ -1,9 +1,13 @@
 <template>
     <div class="bot-nav bg-quaternary">
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#education">Education</a>
-        <a href="#expertise">Expertise</a>
+
+        <b-icon-back />
+        <div class="nav-item-list">
+            <div v-for="menu in menuList" class="nav-item">
+                <a :href="'#' + menu.id">{{ menu.name }}</a>
+            </div>
+        </div>
+        <b-icon-forward />
         <!-- <router-link to="#about">
             About
         </router-link>
@@ -102,28 +106,7 @@ export default {
         'b-icon-back': BIconArrowLeft,
         'b-icon-forward': BIconArrowRight,
     },
-    created() {
-        this.lastIndex = this.menuList.length - 1
-    },
     methods: {
-        changeIndex(num) {
-            setTimeout(() => {
-                let calIndex = this.currentIndex + num;
-                if ((calIndex >= 0) || (calIndex <= this.lastIndex)) {
-                    this.currentIndex += num
-
-                    // Prev
-                    if (calIndex != 0) {
-                        this.prevIndex = calIndex - 1
-                    }
-
-                    // Next
-                    if (calIndex != this.lastIndex) {
-                        this.nexIndex = calIndex + 1
-                    }
-                }
-            }, 500);
-        }
     }
 }
 </script>
@@ -133,59 +116,41 @@ export default {
 }
 
 .bot-nav {
-    /* padding: .5rem; */
     position: sticky;
     bottom: 0;
     left: 0;
-}
-
-.bot-nav>a {
-    color: white;
-}
-
-.bot-nav>ul::-webkit-scrollbar {
-    display: none !important;
-}
-
-ul {
-    width: 100%;
-    list-style: none;
-    overflow-x: scroll;
     display: flex;
-    padding: 1rem .5rem;
-    border-bottom: 1px solid var(--color-white);
-}
 
-ul li {
-    font-size: 1.125rem;
+    height: 4rem;
     align-items: center;
-    color: white;
-    gap: .5rem;
+    overflow-y: hidden;
 }
 
-/* ul li>a {
+.bot-nav svg {
+    width: 2rem;
+    height: 2rem;
+    color: aliceblue;
+}
+
+.bot-nav a {
     text-decoration: none;
-    color: white;
-    padding: .5rem;
-    border-radius: .5rem;
+    font-size: 1.25rem;
+    color: var(--color-white);
 }
 
-ul li>*:nth-child(2) {
-    display: inline-block;
-    width: 100%;
+.nav-item-list {
     flex: 1;
     text-align: center;
+    height: inherit;
+    overflow-y: scroll;
 }
 
-ul li>*:nth-child(2):hover {
-    background-color: #415c78;
+.nav-item-list::-webkit-scrollbar {
+    display: none;
 }
 
-ul li>*:not(:nth-child(2))>span {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+.nav-item {
+}
 
 @media (max-width: 575.98px) {
     .bot-nav {
